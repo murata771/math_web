@@ -1,5 +1,5 @@
 package servlet;
-
+//webをこれから作成していくー
 import java.io.IOException;
 import java.io.PrintWriter;
 
