@@ -47,6 +47,7 @@ public class CounterServlet extends HttpServlet {
     out.println("</head>");
     out.println("<body>");
     out.println("<p>訪問回数：" + count + "</p>");
+    out.println("<p>訪問回数2回目_ふと追加したくなった：" + count + "</p>");
     out.println("<a href=\"/math_web/CounterServlet\">更新</a>");
     out.println("</body>");
     out.println("</html>");
