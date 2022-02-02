@@ -27,6 +27,17 @@ public class User implements Serializable  {
 		this.age = age;
 		this.nowDate = nowDate;
 	}
+	public User(String nickname, String password, String likeThing, String userID, String grade, 
+			LocalDate nowDate) {
+		super();
+		this.nickname = nickname;
+		this.password = password;
+		this.likeThing = likeThing;
+		this.userID = userID;
+		this.grade = grade;
+		
+		this.nowDate = nowDate;
+	}
 	public String getNickname() {
 		return nickname;
 	}

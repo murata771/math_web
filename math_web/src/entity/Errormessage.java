@@ -4,7 +4,16 @@ import java.io.Serializable;
 
 public class Errormessage implements Serializable{
  private String errormessage;
- public Errormessage() {}
+ private int errorflag;
+ public int getErrorflag() {
+	return errorflag;
+}
+
+public void setErrorflag(int errorflag) {
+	this.errorflag = errorflag;
+}
+
+public Errormessage() {}
 
 public Errormessage(String errormessage) {
 	super();
