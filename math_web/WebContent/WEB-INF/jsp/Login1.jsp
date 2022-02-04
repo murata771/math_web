@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面1</title>
-<link rel="stylesheet" type="text/css" href="login.css" >
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/haikei.css" > 
 </head>
 <body>
 <div id="main">

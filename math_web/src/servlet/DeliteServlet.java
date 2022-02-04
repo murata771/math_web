@@ -47,14 +47,18 @@ public class DeliteServlet extends HttpServlet {
 				ServletContext app=this.getServletContext();
 				User user=(User)session.getAttribute("userInfo");
 				UserdeliteLogic delite=new UserdeliteLogic();
+				Integer logincnt=(Integer)app.getAttribute("logincounter");
 				try {
 				if(user!=null) {
 				boolean deliteTF=delite.user1del(user);
 				if(deliteTF) {
+					logincnt=0;
+					app.setAttribute("logincounter", logincnt);
 		RequestDispatcher dispach=request.getRequestDispatcher("/WEB-INF/jsp/Delitesuc.jsp");
 		dispach.forward(request,response);
 				}
 				else {
+					app.setAttribute("logincounter", logincnt);
 		RequestDispatcher dispach=request.getRequestDispatcher("/WEB-INF/jsp/Delitefail.jsp");
 		dispach.forward(request,response);
 				}

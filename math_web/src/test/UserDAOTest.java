@@ -50,19 +50,23 @@ class UserDAOTest {
 	}
 	@Test  public	void useraccessSuccess2() {//正常系_likething
 		UserDAO userlogin=new UserDAO();
-		String like="game";
+		String like="apple";
 	
 		Login login=new Login();
 		login.setLikeThing(like);
+		login.setNickname("minato");
+		login.setPassword("YuNi5511M");
 		User user=userlogin.findsinglerawlikeThing(login);
 		if(user!=null) {
-		assertEquals("game",user.getLikeThing());
+		assertEquals("apple",user.getLikeThing());
+		assertEquals("minato",user.getNickname());
+		assertEquals("YuNi5511M",user.getPassword());
 		}
 		else {fail();
 		}
 		
 	}
-	@Test  public void useraccessFail3() //異常系_likething検索
+	@Test  public void useraccessFail3() //異常系_likething検索、likethingのみの検索
 	{
 		UserDAO userlogin=new UserDAO();
 		String like="game1";

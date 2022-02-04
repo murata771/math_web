@@ -89,7 +89,7 @@ public class Login1Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int i=0;
-		request.setCharacterEncoding("UTF-8");
+		//request.setCharacterEncoding("UTF-8");
 		String nickname=request.getParameter("nickname");
 		String password=request.getParameter("password");
 		HttpSession session=request.getSession();

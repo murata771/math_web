@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bo.Registcnt;
 import bo.RegisterLogic;
 import entity.Errormessage;
 import entity.User;
@@ -53,17 +52,13 @@ public class RegisterServlet extends HttpServlet {
 		}
 		}
 		
-		Registcnt cnt=new Registcnt();
-		boolean cntTF=cnt.count(registcounter);
-		if(cntTF) {
+		
+		
 		RequestDispatcher dispach=request.getRequestDispatcher("/WEB-INF/jsp/Registerbegin.jsp");
 		dispach.forward(request,response);
-		}
-		else {
-		RequestDispatcher dispach=request.getRequestDispatcher("/WEB-INF/jsp/Registcant.jsp");
-		dispach.forward(request,response);
-		}
-	}
+		
+}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -85,6 +80,7 @@ public class RegisterServlet extends HttpServlet {
 		RegisterLogic register=new RegisterLogic();
 		boolean regisTF=register.regis(user);
 		if(regisTF) {//このままだと初めて来たユーザのみが1アカウントだけ登録できる状況に。
+			
 			registcounter=1;
 			app.setAttribute("registcounter", registcounter);
 		RequestDispatcher dispach=request.getRequestDispatcher("/WEB-INF/jsp/Registersuc.jsp");

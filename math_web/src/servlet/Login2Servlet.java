@@ -73,14 +73,16 @@ public class Login2Servlet extends HttpServlet {
 		RequestDispatcher dispach=request.getRequestDispatcher("/WEB-INF/jsp/LoginOK.jsp");
 		dispach.forward(request,response);*/
 		//上のプログラムは遷移のみの時
-		request.setCharacterEncoding("UTF-8");
+		//request.setCharacterEncoding("UTF-8");
 		String likething=request.getParameter("likething");
 		String deliteno=request.getParameter("deliteno");
+		if(deliteno==null) {deliteno="noback";}
 		HttpSession session=request.getSession();
 		ServletContext app=this.getServletContext();
 		Errormessage ermesse=(Errormessage)session.getAttribute("ermesse");
 		Integer logincounter=(Integer)app.getAttribute("logincounter");
-		Login login=new Login(likething);
+		Login login=(Login)session.getAttribute("nickname");
+				login.setLikeThing(likething);
 		//User user=null;
 		Login2Logic loginlogic2=new Login2Logic();
 		if(logincounter==4) 

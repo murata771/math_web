@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bo.Entercheck;
+import bo.Registcnt;
 import entity.Errormessage;
 import entity.User;
 
@@ -80,6 +81,12 @@ public class RegisterkakuninServlet extends HttpServlet {
 		//errorチェック
 		Entercheck erch=new Entercheck();
 		boolean enterTF=erch.checkchar(user);
+		Registcnt cnt=new Registcnt();
+		int regiscnt=cnt.count(user);
+		if(regiscnt>5) {//その日の登録回数上限
+			RequestDispatcher dispach=request.getRequestDispatcher("/WEB-INF/jsp/Registcant.jsp");
+			dispach.forward(request,response);
+		}
 		if(enterTF) {
 			session.setAttribute("userInfo", user);
 			ermese.setErrorflag(0);
